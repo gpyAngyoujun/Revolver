@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RevolverDemo</string>
+    <string name="get_imei">getImei</string>
 </resources>
