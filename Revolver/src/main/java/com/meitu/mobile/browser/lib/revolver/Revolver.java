@@ -3,11 +3,15 @@ package com.meitu.mobile.browser.lib.revolver;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author jimmy
  */
 public class Revolver {
+
+    private final Map<Method, ReflectionMethod> reflectionMethodCache = new HashMap<>();
 
     private Revolver(Builder builder) {
 
@@ -24,13 +28,25 @@ public class Revolver {
                 }
                 ReflectionMethod reflectionMethod = loadReflectionMethod(method);
                 Reflector reflector = new Reflector(reflectionMethod, args);
-                return reflector.reflect();
+                return reflector.invoke();
             }
         });
     }
 
     private ReflectionMethod loadReflectionMethod(Method method) {
-        return null;
+        ReflectionMethod result = reflectionMethodCache.get(method);
+        if (result != null) {
+            return result;
+        }
+
+        synchronized (reflectionMethodCache) {
+            result = reflectionMethodCache.get(method);
+            if (result == null) {
+                result = new ReflectionMethod.Builder(method).build();
+                reflectionMethodCache.put(method, result);
+            }
+        }
+        return result;
     }
 
     public static class Builder {

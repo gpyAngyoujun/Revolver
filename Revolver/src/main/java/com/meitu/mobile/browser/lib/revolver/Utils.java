@@ -1,5 +1,7 @@
 package com.meitu.mobile.browser.lib.revolver;
 
+import com.meitu.mobile.browser.lib.revolver.reflection.CLASS;
+
 import java.util.Objects;
 
 /**
@@ -18,5 +20,13 @@ class Utils {
         if (reflection.getInterfaces().length > 0) {
             throw new IllegalArgumentException("API interfaces must not extend other interfaces.");
         }
+    }
+
+    public static boolean isEmptyString(String cls) {
+        return cls == null || cls.length() == 0;
+    }
+
+    public static boolean isValidateClass(Class reflect) {
+        return reflect != null && reflect != CLASS.class;
     }
 }
