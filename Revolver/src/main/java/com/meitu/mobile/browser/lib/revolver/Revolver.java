@@ -12,9 +12,10 @@ import java.util.Map;
 public class Revolver {
 
     private final Map<Method, ReflectionMethod> reflectionMethodCache = new HashMap<>();
+    private final int level;
 
     private Revolver(Builder builder) {
-
+        this.level = builder.level;
     }
 
     public <T> T create(Class<T> reflection) {
@@ -51,8 +52,18 @@ public class Revolver {
 
     public static class Builder {
 
+        private int level;
+
         public Revolver build() {
+            if (level < 0) {
+                level = 0;
+            }
             return new Revolver(this);
+        }
+
+        public Builder level(int level) {
+            this.level = level;
+            return this;
         }
     }
 }

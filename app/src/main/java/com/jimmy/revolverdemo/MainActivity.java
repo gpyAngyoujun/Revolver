@@ -1,5 +1,6 @@
 package com.jimmy.revolverdemo;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
@@ -13,17 +14,20 @@ import com.meitu.mobile.browser.lib.revolver.Revolver;
  */
 public class MainActivity extends AppCompatActivity {
 
+    private Revolver mRevolver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mRevolver = new Revolver.Builder()
+                .level(Build.VERSION.SDK_INT)
+                .build();
         findViewById(R.id.btn_get_imei)
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Revolver revolver = new Revolver.Builder()
-                                .build();
-                        ReflectionApi api = revolver.create(ReflectionApi.class);
+                        ReflectionApi api = mRevolver.create(ReflectionApi.class);
                         String imei = api.getImei((TelephonyManager) getSystemService(TELEPHONY_SERVICE));
                         Log.i("MainActivity", imei);
                     }
