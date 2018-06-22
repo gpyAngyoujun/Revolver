@@ -1,5 +1,6 @@
 package com.jimmy.revolverdemo;
 
+import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import com.meitu.mobile.browser.lib.revolver.Revolver;
 public class MainActivity extends AppCompatActivity {
 
     private Revolver mRevolver;
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +31,10 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         ReflectionApi api = mRevolver.create(ReflectionApi.class);
                         String imei = api.getImei((TelephonyManager) getSystemService(TELEPHONY_SERVICE));
-                        Log.i("MainActivity", imei);
+                        Log.i(TAG, imei);
                     }
                 });
+
+        Log.i(TAG, String.valueOf(Activity.class.getSuperclass()));
     }
 }

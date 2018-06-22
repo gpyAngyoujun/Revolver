@@ -114,7 +114,7 @@ class ReflectionMethod {
         }
 
         private void parseClassAnnotation(CLASS reflect) {
-            if (Utils.isValidateClass(reflect.value())) {
+            if (Utils.isReflect(reflect.value())) {
                 reflectClass = reflect.value();
             } else if (!Utils.isEmptyString(reflect.cls())) {
                 String cls = reflect.cls();
