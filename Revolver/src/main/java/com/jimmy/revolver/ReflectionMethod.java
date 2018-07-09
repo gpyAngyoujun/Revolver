@@ -1,7 +1,7 @@
-package com.meitu.mobile.browser.lib.revolver;
+package com.jimmy.revolver;
 
-import com.meitu.mobile.browser.lib.revolver.reflection.CLASS;
-import com.meitu.mobile.browser.lib.revolver.reflection.Invoker;
+import com.jimmy.revolver.reflection.CLASS;
+import com.jimmy.revolver.reflection.Invoker;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;

@@ -1,11 +1,5 @@
-package com.meitu.mobile.browser.lib.revolver;
+package com.jimmy.revolver;
 
-import com.meitu.mobile.browser.lib.revolver.reflection.CLASS;
-import com.meitu.mobile.browser.lib.revolver.reflection.CONSTRUCTOR;
-import com.meitu.mobile.browser.lib.revolver.reflection.FIELD;
-import com.meitu.mobile.browser.lib.revolver.reflection.LEVEL;
-
-import java.lang.annotation.Annotation;
 import java.util.Objects;
 
 /**

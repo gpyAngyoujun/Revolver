@@ -1,4 +1,4 @@
-package com.meitu.mobile.browser.lib.revolver;
+package com.jimmy.revolver;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

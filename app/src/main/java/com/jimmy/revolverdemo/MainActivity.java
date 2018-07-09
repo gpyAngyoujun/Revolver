@@ -1,6 +1,7 @@
 package com.jimmy.revolverdemo;
 
 import android.app.Activity;
+import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +9,7 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 
-import com.meitu.mobile.browser.lib.revolver.Revolver;
+import com.jimmy.revolver.Revolver;
 
 /**
  * @author jimmy
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         ReflectionApi api = mRevolver.create(ReflectionApi.class);
                         String imei = api.getImei((TelephonyManager) getSystemService(TELEPHONY_SERVICE));
+                        AudioManager manager = api.AudioManager(getApplicationContext());
                         Log.i(TAG, imei);
                     }
                 });

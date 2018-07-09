@@ -1,4 +1,4 @@
-package com.meitu.mobile.browser.lib.revolver.reflection;
+package com.jimmy.revolver.reflection;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

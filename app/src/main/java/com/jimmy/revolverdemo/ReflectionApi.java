@@ -1,12 +1,15 @@
 package com.jimmy.revolverdemo;
 
+import android.content.Context;
 import android.content.res.Resources;
+import android.media.AudioManager;
 import android.telephony.TelephonyManager;
 import android.view.View;
 
-import com.meitu.mobile.browser.lib.revolver.reflection.CLASS;
-import com.meitu.mobile.browser.lib.revolver.reflection.FIELD;
-import com.meitu.mobile.browser.lib.revolver.reflection.Invoker;
+import com.jimmy.revolver.reflection.CLASS;
+import com.jimmy.revolver.reflection.CONSTRUCTOR;
+import com.jimmy.revolver.reflection.FIELD;
+import com.jimmy.revolver.reflection.Invoker;
 
 /**
  * @author yangyoujun
@@ -32,5 +35,13 @@ public interface ReflectionApi {
     @FIELD(View.class)
     Resources mResources(@Invoker View invoker);
 
-
+    /**
+     * 反射 AudioManager.class 类中的 构造函数，以此来生成新的实例
+     * <p>
+     * //@hide public AudioManager(Context context)
+     *
+     * @return 返回 AudioManager 的实例
+     */
+    @CONSTRUCTOR(AudioManager.class)
+    AudioManager AudioManager(Context context);
 }
