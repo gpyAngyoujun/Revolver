@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface CLASS {
+public @interface METHOD {
 
     /**
      * 需要反射的class name
@@ -24,5 +24,5 @@ public @interface CLASS {
     /**
      * 要放射的class对象
      */
-    Class value() default CLASS.class;
+    Class value() default METHOD.class;
 }

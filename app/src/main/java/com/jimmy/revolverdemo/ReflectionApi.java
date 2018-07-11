@@ -6,10 +6,11 @@ import android.media.AudioManager;
 import android.telephony.TelephonyManager;
 import android.view.View;
 
-import com.jimmy.revolver.reflection.CLASS;
+import com.jimmy.revolver.reflection.METHOD;
 import com.jimmy.revolver.reflection.CONSTRUCTOR;
 import com.jimmy.revolver.reflection.FIELD;
 import com.jimmy.revolver.reflection.Invoker;
+import com.jimmy.revolver.result.FieldCall;
 
 /**
  * @author yangyoujun
@@ -20,10 +21,10 @@ public interface ReflectionApi {
     /**
      * 反射 TelephonyManager.class 类中的 getImei()方法
      *
-     * @param invoker 反射处理者，其类型必须和 {@link CLASS} 中提供的一致
+     * @param invoker 反射处理者，其类型必须和 {@link METHOD} 中提供的一致
      * @return 返回一个String类型的imei
      */
-    @CLASS(TelephonyManager.class)
+    @METHOD(TelephonyManager.class)
     String getImei(@Invoker TelephonyManager invoker);
 
     /**
@@ -33,7 +34,7 @@ public interface ReflectionApi {
      * @return 返回 View 中的 mResources 对象
      */
     @FIELD(View.class)
-    Resources mResources(@Invoker View invoker);
+    FieldCall<Resources> mResources(@Invoker View invoker);
 
     /**
      * 反射 AudioManager.class 类中的 构造函数，以此来生成新的实例

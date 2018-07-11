@@ -1,6 +1,6 @@
 package com.jimmy.revolver;
 
-import com.jimmy.revolver.reflection.CLASS;
+import com.jimmy.revolver.reflection.METHOD;
 import com.jimmy.revolver.reflection.Invoker;
 
 import java.lang.annotation.Annotation;
@@ -55,7 +55,7 @@ class ReflectionMethod {
             methodName = method.getName();
 
             if (reflectClass == null) {
-                throw reflectionError("REFLECTION method annotation is required @CLASS.");
+                throw reflectionError("REFLECTION method annotation is required @METHOD.");
             }
 
             hasInvoker = verityInvokerType();
@@ -106,14 +106,14 @@ class ReflectionMethod {
         }
 
         private void parseMethodAnnotation(Annotation reflect) {
-            if (reflect instanceof CLASS) {
-                parseClassAnnotation(((CLASS) reflect));
+            if (reflect instanceof METHOD) {
+                parseClassAnnotation(((METHOD) reflect));
             } else {
                 throw reflectionError("the method annotation is not support. annotation: " + reflect);
             }
         }
 
-        private void parseClassAnnotation(CLASS reflect) {
+        private void parseClassAnnotation(METHOD reflect) {
             if (Utils.isReflect(reflect.value())) {
                 reflectClass = reflect.value();
             } else if (!Utils.isEmptyString(reflect.cls())) {
@@ -124,7 +124,7 @@ class ReflectionMethod {
                     throw reflectionError("the class is not found. class name: " + cls);
                 }
             } else {
-                throw reflectionError("the value of @CLASS is invalid.");
+                throw reflectionError("the value of @METHOD is invalid.");
             }
         }
 

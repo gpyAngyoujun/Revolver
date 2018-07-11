@@ -1,6 +1,6 @@
 package com.jimmy.revolver;
 
-import com.jimmy.revolver.reflection.CLASS;
+import com.jimmy.revolver.reflection.METHOD;
 import com.jimmy.revolver.reflection.CONSTRUCTOR;
 import com.jimmy.revolver.reflection.FIELD;
 import com.jimmy.revolver.reflection.LEVEL;
@@ -16,7 +16,7 @@ import java.lang.annotation.Annotation;
 abstract class MethodHandler {
 
     static MethodHandler create(Annotation annotation) {
-        if (annotation instanceof CLASS) {
+        if (annotation instanceof METHOD) {
             return new Class();
         } else if (annotation instanceof FIELD) {
             return new Field();

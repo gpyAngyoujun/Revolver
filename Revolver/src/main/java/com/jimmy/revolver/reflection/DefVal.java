@@ -12,7 +12,9 @@ import java.lang.annotation.Target;
  * 1. 同时使用了 {@link LEVEL}
  * 2. 本注解必须放在参数的最末尾
  * <p>
- * Created by yangyoujun on 2018/7/9 .
+ *
+ * @author jimmy
+ * @date 2018/7/9
  */
 @Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)

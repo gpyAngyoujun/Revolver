@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
  * 表示该参数是反射中的invoker对象
  * 1.每个接口中有且只有一个参数能被Invoker修饰
  * 2.该参数必须排在第一个
- * 3.被Invoker修饰的参数类型必须和{@link CLASS}中提供的数据类型一致
+ * 3.被Invoker修饰的参数类型必须和{@link METHOD}中提供的数据类型一致
  *
  * @author yangyoujun
  * @date 2018/6/8
